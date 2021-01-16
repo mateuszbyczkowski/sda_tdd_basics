@@ -14,7 +14,7 @@ public class AirplaneTest {
     }
 
     @Test
-    public void testDescent() {
+    public void testOverDescent() {
         //when
         a.descent(1500);
 
@@ -24,12 +24,34 @@ public class AirplaneTest {
     }
 
     @Test
+    public void testDescent() {
+        //when
+        a.descent(500);
+
+        // then
+        // simple JUnit assertions
+        assertEquals(a.getHeight(), 500);
+    }
+
+    @Test
     public void testAscent() {
         //when
-        a.ascent(1000000);
+        a.ascent(1000);
+
+        // then
+        // simple JUnit assertions
+        assertEquals(a.getHeight(), 2000);
+    }
+
+    @Test
+    public void testOverAscent() {
+        //when
+        a.ascent(990000000);
 
         // then
         // simple JUnit assertions
         assertEquals(a.getHeight(), 1000000);
     }
+
+
 }
